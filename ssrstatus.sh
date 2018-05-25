@@ -714,7 +714,7 @@ Install_caddy(){
 		Set_server
 		Set_server_port
 		if [[ ! -e "/usr/local/caddy/caddy" ]]; then
-			wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh
+			wget -N --no-check-certificate https://raw.githubusercontent.com/Ache1123/doubi/master/caddy_install.sh
 			chmod +x caddy_install.sh
 			bash caddy_install.sh install
 			[[ ! -e "/usr/local/caddy/caddy" ]] && echo -e "${Error} Caddy安装失败，请手动部署，Web网页文件位置：${Web_file}" && exit 0
@@ -747,7 +747,7 @@ EOF
 }
 Download_SSRStatus(){
 	cd "/usr/local"
-	wget -N --no-check-certificate "https://github.com/ToyoDAdoubi/SSRStatus/archive/master.zip"
+	wget -N --no-check-certificate "https://github.com/Ache1123/SSRStatus/archive/master.zip"
 	[[ ! -e "master.zip" ]] && echo -e "${Error} SSRStatus 网页文件下载失败 !" && exit 1
 	unzip master.zip && rm -rf master.zip
 	[[ ! -e "SSRStatus-master" ]] && echo -e "${Error} SSRStatus 网页文件解压失败 !" && exit 1
@@ -810,7 +810,7 @@ Del_Crontab(){
 Update_Shell(){
 	echo -e "当前版本为 [ ${sh_ver} ]，开始检测最新版本..."
 	sh_new_ver=$(wget --no-check-certificate -qO- "https://softs.loan/Bash/ssrstatus.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="softs"
-	[[ -z ${sh_new_ver} ]] && sh_new_ver=$(wget --no-check-certificate -qO- "https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrstatus.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
+	[[ -z ${sh_new_ver} ]] && sh_new_ver=$(wget --no-check-certificate -qO- "https://raw.githubusercontent.com/Ache1123/doubi/master/ssrstatus.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} 检测最新版本失败 !" && exit 0
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "发现新版本[ ${sh_new_ver} ]，是否更新？[Y/n]"
@@ -820,7 +820,7 @@ Update_Shell(){
 			if [[ $sh_new_type == "softs" ]]; then
 				wget -N --no-check-certificate https://softs.loan/Bash/ssrstatus.sh && chmod +x ssrstatus.sh
 			else
-				wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrstatus.sh && chmod +x ssrstatus.sh
+				wget -N --no-check-certificate https://raw.githubusercontent.com/Ache1123/doubi/master/ssrstatus.sh && chmod +x ssrstatus.sh
 			fi
 			echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !"
 		else
