@@ -8,7 +8,7 @@ CentOS 7 自带防火墙问题(firewalld)自行解决，其他版本没有做测
 wget -N --no-check-certificate https://raw.githubusercontent.com/Ache1123/doubi/master/ssrmu.sh && chmod +x ssrmu.sh && bash ssrmu.sh
 # 卸载：
 ssrmu.sh脚本里有卸载选项
-# BBR加速（注意：安装过程中蓝屏提醒时，按Tab键切换到No,再回车）
+# BBR加速（注意：安装过程中蓝屏(颜色不一定)提醒YES NO时，按Tab键切换到No,再回车。一些比如腾讯云香港的机器可能会产生相反效果，加了BBR反而变慢，注意先测试下是否变慢，再决定是否加 BBR）
 脚本里有选项安装BBR，或者你单独用BBR教程，一样的没区别。
 # 文件位置
 安装目录：/usr/local/shadowsocksr   
